@@ -148,7 +148,7 @@ server.post("/create-checkout-session", async (req, res) => {
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/Blockchain");
+  await mongoose.connect("mongodb+srv://test:test@cluster0.elcthhj.mongodb.net/Blockchain?retryWrites=true&w=majority&appName=Cluster0");
   console.log("database connected");
 }
 
