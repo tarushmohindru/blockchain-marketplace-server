@@ -138,8 +138,8 @@ server.post("/create-checkout-session", async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: req.body,
     mode: "payment",
-    success_url: "http://localhost:8080",
-    cancel_url: "http://localhost:8080",
+    success_url: "https://blockchain-marketplace-server.onrender.com/",
+    cancel_url: "https://blockchain-marketplace-server.onrender.com/",
   });
   console.log(session.url);
   res.json({ url: session.url });
@@ -148,7 +148,9 @@ server.post("/create-checkout-session", async (req, res) => {
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb+srv://test:test@cluster0.elcthhj.mongodb.net/Blockchain?retryWrites=true&w=majority&appName=Cluster0");
+  await mongoose.connect(
+    "mongodb+srv://test:test@cluster0.elcthhj.mongodb.net/Blockchain?retryWrites=true&w=majority&appName=Cluster0"
+  );
   console.log("database connected");
 }
 
